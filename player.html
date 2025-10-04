@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slime Gutter Player</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0d12;
+  color: #e6eef8;
+  text-align: center;
+  min-height: 100vh;
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.player {
+  width: 380px;
+  background: linear-gradient(145deg, #0f1219, #14161d);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(102, 194, 23, 0.35), inset 0 0 8px #0b0d12;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.player:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(102,194,23,0.6), inset 0 0 12px #0f1219;
+}
+.album-art {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px #66C217;
+  transition: transform 0.3s ease;
+}
+.album-art:hover {
+  transform: scale(1.04);
+}
+.song-info {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.song-info h2 {
+  color: #99E430;
+  margin: 4px 0;
+  font-size: 1.5rem;
+  text-shadow: 0 0 8px #66C217;
+}
+.song-info p {
+  color: #b2b9c5;
+  margin: 0;
+  font-size: 1rem;
+}
+.controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+button {
+  flex: 1;
+  margin: 0 8px;
+  background: #66C217;
+  border: none;
+  color: #0b1220;
+  padding: 12px 0;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+button:hover {
+  background: #99E430;
+  transform: scale(1.07);
+  box-shadow: 0 0 18px #99E430, 0 0 35px #66C217;
+}
+.progress-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.progress {
+  flex: 1;
+  height: 10px;
+  background: #1b1f27;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 6px #000;
+}
+.progress-filled {
+  height: 100%;
+  background: linear-gradient(90deg, #66C217, #99E430);
+  width: 0%;
+  border-radius: 5px;
+  transition: width 0.1s linear;
+}
+.time {
+  font-size: 0.8rem;
+  color: #b2b9c5;
+  width: 45px;
+  text-align: center;
+}
+.settings {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+select,input[type=range] {
+  background: #111;
+  color: #e6eef8;
+  border: 1px solid #66C217;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.9rem;
+}
+input[type=range] {
+  -webkit-appearance: none;
+  width: 130px;
+  height: 6px;
+  background: #222;
+  border-radius: 3px;
+  cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #66C217;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 6px #99E430;
+}
+@media(max-width:420px){
+  .player{ width:92%; padding:20px; }
+  .song-info h2{ font-size:1.2rem; }
+  button{ font-size:0.9rem; padding:10px 0; }
+}
+</style>
+</head>
+<body>
+<div class="player">
+  <img id="album-art" src="" alt="Album Art" class="album-art">
+  <div class="song-info">
+    <h2 id="song-title">Song Title</h2>
+    <p id="song-artist">Artist Name</p>
+  </div>
+  <div class="controls">
+    <button id="back-10">- 10s</button>
+    <button id="play-pause">Play</button>
+    <button id="forward-10">+ 10s</button>
+  </div>
+  <div class="progress-container">
+    <span class="time" id="current-time">0:00</span>
+    <div class="progress" id="progress">
+      <div class="progress-filled" id="progress-filled"></div>
+    </div>
+    <span class="time" id="duration">0:00</span>
+  </div>
+  <div class="settings">
+    <label>Volume
+      <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+    </label>
+    <label>Speed
+      <select id="speed">
+        <option value="0.5">0.5x</option>
+        <option value="0.75">0.75x</option>
+        <option value="1" selected>1x</option>
+        <option value="1.25">1.25x</option>
+        <option value="1.5">1.5x</option>
+        <option value="2">2x</option>
+      </select>
+    </label>
+  </div>
+  <audio id="audio" src="" preload="metadata"></audio>
+</div>
+<script>
+const params = new URLSearchParams(window.location.search)
+const songFile = params.get('file')
+const songTitle = params.get('song')
+const songArtist = params.get('artist')
+const albumArt = params.get('image')
+const audio = document.getElementById('audio')
+audio.src = songFile
+document.getElementById('song-title').textContent = songTitle
+document.getElementById('song-artist').textContent = songArtist
+document.getElementById('album-art').src = albumArt
+const playBtn = document.getElementById('play-pause')
+const back10 = document.getElementById('back-10')
+const forward10 = document.getElementById('forward-10')
+const progress = document.getElementById('progress')
+const progressFilled = document.getElementById('progress-filled')
+const currentTimeEl = document.getElementById('current-time')
+const durationEl = document.getElementById('duration')
+const volumeSlider = document.getElementById('volume')
+const speedSelect = document.getElementById('speed')
+playBtn.addEventListener('click',()=>{
+  if(audio.paused){ audio.play(); playBtn.textContent='Pause'; }
+  else{ audio.pause(); playBtn.textContent='Play'; }
+})
+back10.addEventListener('click',()=>{ audio.currentTime -= 10 })
+forward10.addEventListener('click',()=>{ audio.currentTime += 10 })
+volumeSlider.addEventListener('input',()=>{ audio.volume = volumeSlider.value })
+speedSelect.addEventListener('change',()=>{ audio.playbackRate = speedSelect.value })
+audio.addEventListener('timeupdate',()=>{
+  const percent = (audio.currentTime/audio.duration)*100
+  progressFilled.style.width = percent + '%'
+  currentTimeEl.textContent = formatTime(audio.currentTime)
+  durationEl.textContent = formatTime(audio.duration)
+})
+progress.addEventListener('click', e=>{
+  const width = progress.clientWidth
+  const clickX = e.offsetX
+  audio.currentTime = (clickX/width)*audio.duration
+})
+function formatTime(seconds){
+  if(isNaN(seconds)) return '0:00'
+  const m = Math.floor(seconds/60)
+  const s = Math.floor(seconds%60)
+  return `${m}:${s<10?'0':''}${s}`
+}
+</script>
+</body>
+</html>

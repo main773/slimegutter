@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slime Gutter – Music</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.container { max-width: 700px; margin: 20px auto; font-size: 0.9rem; }
+.section { margin-bottom: 15px; }
+.album {
+  display: flex;
+  align-items: flex-start;
+  background: #111;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 0 6px #222;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.album:hover { transform: scale(1.02); }
+.album img { width: 60px; height: 60px; border-radius: 6px; margin-right: 10px; }
+.album-info h2 { font-size: 0.95rem; color: #99E430; margin: 0; text-align: left; }
+.album-info p { font-size: 0.8rem; color: #b2b9c5; margin: 2px 0 0 0; text-align: left; }
+.title { font-size: 1.6rem; margin-bottom: 8px; color: #99E430; text-align: left; }
+.about-us { font-size: 0.9rem; color: #b2b9c5; margin-bottom: 15px; text-align: left; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="music.html" class="active">Music</a>
+    <a href="artists.html">Artists</a>
+    <a href="void.html">Void</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="section">
+    <h1 class="title">Slime Gutter Music</h1>
+    <p class="about-us">Click an album to view songs and play them.</p>
+  </div>
+
+  <div class="section" id="albums-container"></div>
+</main>
+
+<script src="music.js"></script>
+<script>
+const container = document.getElementById('albums-container');
+
+albums.forEach(album => {
+  const albumDiv = document.createElement('div');
+  albumDiv.className = 'album';
+  albumDiv.innerHTML = `
+    <a href="viewer.html?album=${encodeURIComponent(album.t)}" style="display:flex; align-items:flex-start; text-decoration:none;">
+      <img src="${album.i}" alt="${album.t}">
+      <div class="album-info">
+        <h2>${album.t} (${album.s.map(s => s.a).join(', ')})</h2>
+        <p>${album.d}</p>
+      </div>
+    </a>
+  `;
+  container.appendChild(albumDiv);
+});
+</script>
+
+</body>
+</html>
