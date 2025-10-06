@@ -4,31 +4,113 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Slime Gutter – Music</title>
-<link rel="stylesheet" href="styles.css" />
 <style>
-.container { max-width: 700px; margin: 20px auto; font-size: 0.9rem; }
-.section { margin-bottom: 15px; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0d12;
+  color: #e6eef8;
+  text-align: center;
+  min-height: 100vh;
+  padding: 0 15px;
+}
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 0 10px #222;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+nav a {
+  color: #e6eef8;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+nav a:hover {
+  color: #66C217;
+  transform: scale(1.1);
+  background: rgba(102, 194, 23, 0.15);
+}
+nav a.active {
+  color: #66C217;
+  background: rgba(102, 194, 23, 0.15);
+  transform: scale(1.1);
+}
+.container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+.section {
+  background: #111;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #222;
+  margin-bottom: 40px;
+  text-align: left;
+}
+.title {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #99E430;
+  text-shadow: 0 0 10px #99E430, 0 0 20px #66C217;
+  text-align: center;
+}
+.about-us {
+  font-size: 1.1rem;
+  color: #b2b9c5;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 30px;
+}
 .album {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  gap: 15px;
   background: #111;
-  padding: 8px;
+  padding: 10px 15px;
   border-radius: 8px;
-  box-shadow: 0 0 6px #222;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: background-color 0.3s ease;
 }
-.album:hover { transform: scale(1.02); }
-.album img { width: 60px; height: 60px; border-radius: 6px; margin-right: 10px; }
-.album-info h2 { font-size: 0.95rem; color: #99E430; margin: 0; text-align: left; }
-.album-info p { font-size: 0.8rem; color: #b2b9c5; margin: 2px 0 0 0; text-align: left; }
-.title { font-size: 1.6rem; margin-bottom: 8px; color: #99E430; text-align: left; }
-.about-us { font-size: 0.9rem; color: #b2b9c5; margin-bottom: 15px; text-align: left; }
+.album:hover {
+  background-color: #222;
+}
+.album img {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+.album-info h2 {
+  margin: 0;
+  color: #99E430;
+  font-size: 1.1rem;
+}
+.album-info p {
+  margin: 2px 0 0 0;
+  color: #b2b9c5;
+  font-size: 0.9rem;
+}
 </style>
 </head>
 <body>
-
 <header>
   <nav>
     <a href="home.html">Home</a>
@@ -37,35 +119,31 @@
     <a href="void.html">Void</a>
   </nav>
 </header>
-
 <main class="container">
   <div class="section">
     <h1 class="title">Slime Gutter Music</h1>
     <p class="about-us">Click an album to view songs and play them.</p>
   </div>
-
   <div class="section" id="albums-container"></div>
 </main>
-
 <script src="music.js"></script>
 <script>
 const container = document.getElementById('albums-container');
-
 albums.forEach(album => {
   const albumDiv = document.createElement('div');
   albumDiv.className = 'album';
   albumDiv.innerHTML = `
-    <a href="viewer.html?album=${encodeURIComponent(album.t)}" style="display:flex; align-items:flex-start; text-decoration:none;">
-      <img src="m/${album.i}" alt="${album.t}">
+    <a href="viewer.html?album=${encodeURIComponent(album.t)}" style="display:flex; align-items:center; text-decoration:none; color: inherit;">
+      <img src="m/${album.i}" alt="${album.t}" />
       <div class="album-info">
         <h2>${album.t}</h2>
         <p>${album.d} (${album.s.length} songs)</p>
+        <p>${album.s.length > 0 ? album.s[0].a : ''}</p>
       </div>
     </a>
   `;
   container.appendChild(albumDiv);
 });
 </script>
-
 </body>
 </html>
