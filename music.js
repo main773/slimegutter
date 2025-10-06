@@ -2,7 +2,7 @@ const albums = [
   {
     t: "Popular",
     d: "Slime Gutter's Top 10 Most Popular",
-    i: "m/sg.png",
+    i: "m/tt.jpeg",
     s: [
       { t: "Slimecraft", a: "Slime Gutter", f: "m/slimecraft.mp3", i: "m/sg.png", d: "1:11" },
       { t: "Slime Gutter", a: "Slime Gutter", f: "m/slime_gutter.mp3", i: "m/sg.png", d: "3:39" },
@@ -17,8 +17,8 @@ const albums = [
     ]
   },
   {
-    t: "Placeholder 2",
-    d: "A short description 2",
+    t: "Recomended",
+    d: "What we recomend you lissten to!",
     i: "m/test.png",
     s: [
       { t: "Placeholder A no audio", a: "a", f: "m/song3.mp3", i: "m/test.png" },
@@ -26,3 +26,4 @@ const albums = [
     ]
   }
 ];
+
