@@ -83,7 +83,7 @@
     font-size: 1.1rem;
     color: #b2b9c5;
     line-height: 1.6;
-    max-height: 5.2em; /* about 3 lines */
+    max-height: 5.2em;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -186,7 +186,7 @@
   const audioPlayer = document.getElementById('audioPlayer');
 
   songList.addEventListener('click', (e) => {
-    let li = e.target.closest('li');
+    const li = e.target.closest('li');
     if (!li) return;
     const src = li.getAttribute('data-src');
     if (src) {
