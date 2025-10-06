@@ -6,68 +6,25 @@
 <title>Slime Gutter – Music</title>
 <link rel="stylesheet" href="styles.css" />
 <style>
-  .container {
-    max-width: 700px;
-    margin: 20px auto;
-    font-size: 0.9rem;
-  }
-  .section {
-    margin-bottom: 15px;
-  }
-  .album {
-    display: flex;
-    align-items: flex-start;
-    background: #111;
-    padding: 8px;
-    border-radius: 8px;
-    box-shadow: 0 0 6px #222;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-  }
-  .album:hover {
-    transform: scale(1.02);
-  }
-  .album img {
-    width: 60px;
-    height: 60px;
-    border-radius: 6px;
-    margin-right: 10px;
-  }
-  .album-info h2 {
-    font-size: 0.95rem;
-    color: #99E430;
-    margin: 0 0 6px 0;
-    text-align: left;
-  }
-  .album-info p {
-    font-size: 0.8rem;
-    color: #b2b9c5;
-    margin: 0 0 10px 0;
-    text-align: left;
-  }
-  .songs-list a {
-    display: block;
-    color: #b2b9c5;
-    font-size: 0.85rem;
-    margin-bottom: 4px;
-    text-decoration: none;
-  }
-  .songs-list a:hover {
-    color: #99E430;
-  }
-  .title {
-    font-size: 1.6rem;
-    margin-bottom: 8px;
-    color: #99E430;
-    text-align: left;
-  }
-  .about-us {
-    font-size: 0.9rem;
-    color: #b2b9c5;
-    margin-bottom: 15px;
-    text-align: left;
-  }
+.container { max-width: 700px; margin: 20px auto; font-size: 0.9rem; }
+.section { margin-bottom: 15px; }
+.album {
+  display: flex;
+  align-items: flex-start;
+  background: #111;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 0 6px #222;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.album:hover { transform: scale(1.02); }
+.album img { width: 60px; height: 60px; border-radius: 6px; margin-right: 10px; }
+.album-info h2 { font-size: 0.95rem; color: #99E430; margin: 0; text-align: left; }
+.album-info p { font-size: 0.8rem; color: #b2b9c5; margin: 2px 0 0 0; text-align: left; }
+.title { font-size: 1.6rem; margin-bottom: 8px; color: #99E430; text-align: left; }
+.about-us { font-size: 0.9rem; color: #b2b9c5; margin-bottom: 15px; text-align: left; }
 </style>
 </head>
 <body>
@@ -92,34 +49,22 @@
 
 <script src="music.js"></script>
 <script>
-  const container = document.getElementById('albums-container');
+const container = document.getElementById('albums-container');
 
-  albums.forEach(album => {
-    const albumDiv = document.createElement('div');
-    albumDiv.className = 'album';
-    albumDiv.innerHTML = `
+albums.forEach(album => {
+  const albumDiv = document.createElement('div');
+  albumDiv.className = 'album';
+  albumDiv.innerHTML = `
+    <a href="viewer.html?album=${encodeURIComponent(album.t)}" style="display:flex; align-items:flex-start; text-decoration:none;">
       <img src="m/${album.i}" alt="${album.t}">
       <div class="album-info">
-        <h2>${album.t} — ${album.d} (${album.s.length} songs)</h2>
-        <div class="songs-list">
-          ${album.s
-            .map(
-              (s) => `
-            <a href="viewer.html?file=${encodeURIComponent(
-              'm/' + s.f
-            )}&song=${encodeURIComponent(s.t)}&artist=${encodeURIComponent(
-                s.a
-              )}&image=${encodeURIComponent('m/' + s.i)}">
-              🎵 ${s.t}${s.d ? ` (${s.d})` : ''}
-            </a>
-          `
-            )
-            .join('')}
-        </div>
+        <h2>${album.t}</h2>
+        <p>${album.d} (${album.s.length} songs)</p>
       </div>
-    `;
-    container.appendChild(albumDiv);
-  });
+    </a>
+  `;
+  container.appendChild(albumDiv);
+});
 </script>
 
 </body>
