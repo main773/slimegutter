@@ -127,7 +127,7 @@
 
       songsContainer.innerHTML = album.s.map((song, index) => `
         <div class="song">
-          <a href="player.html?album=${encodeURIComponent(album.t)}&song=${encodeURIComponent(song.t)}&file=${encodeURIComponent(song.f)}&image=${encodeURIComponent(song.i)}">
+          <a href="player.html?album=${encodeURIComponent(album.t)}&song=${encodeURIComponent(song.t)}&file=m/${encodeURIComponent(song.f)}&image=m/${encodeURIComponent(song.i)}&artist=${encodeURIComponent(song.a)}">
             <div class="song-number">${index + 1}</div>
             <div class="song-title">${song.t}</div>
           </a>
@@ -140,4 +140,3 @@
 
 </body>
 </html>
-
