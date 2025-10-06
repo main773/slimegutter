@@ -11,14 +11,24 @@ body {
 header {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background: #111;
-  padding: 15px 0;
+  padding: 15px 20px;
   position: sticky;
   top: 0;
   z-index: 100;
   box-shadow: 0 0 10px #222;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #e6eef8;
+  cursor: pointer;
+  z-index: 101;
 }
 
 nav {
@@ -132,7 +142,55 @@ nav a.active {
 }
 
 @media (max-width: 600px) {
-  .title { font-size: 2rem; }
-  .about-us { font-size: 1rem; }
-  .section { padding: 20px; }
+  .title {
+    font-size: 2rem;
+  }
+
+  .about-us {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+    background: #111;
+    padding: 20px 0;
+    border-top: 1px solid #222;
+    width: 100%;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav a {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 1rem;
+    border: 1px solid #222;
+    background-color: #0f1118;
+    border-radius: 6px;
+    transform: none;
+  }
+
+  nav a:hover,
+  nav a.active {
+    background-color: rgba(102, 194, 23, 0.2);
+    transform: none;
+  }
 }
+
+
