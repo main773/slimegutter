@@ -1,10 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Slime Gutter – Home</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Slime Gutter – Home</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b0d12;
+    color: #e6eef8;
+    min-height: 100vh;
+    padding: 0 15px;
+  }
+
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 0 10px #222;
+    position: relative;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    color: #e6eef8;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #66C217;
+    transform: scale(1.1);
+    background: rgba(102, 194, 23, 0.15);
+  }
+
+  nav a.active {
+    color: #66C217;
+    background: rgba(102, 194, 23, 0.15);
+    transform: scale(1.1);
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #e6eef8;
+    cursor: pointer;
+    z-index: 101;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  main.container {
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: left;
+  }
+
+  .section {
+    background: #111;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #222;
+    margin-bottom: 40px;
+  }
+
+  .title {
+    color: #99E430;
+    margin-top: 0;
+  }
+
+  .about-us {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #b2b9c5;
+    margin-bottom: 30px;
+  }
+
+  .section-btn {
+    display: inline-block;
+    background: #66C217;
+    color: #0b0d12;
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .section-btn:hover {
+    background: #99e430;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+    color: #b2b9c5;
+    font-weight: bold;
+  }
+
+  .social-links span {
+    flex-shrink: 0;
+  }
+
+  .social-links a {
+    background: #0f1118;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: #e6eef8;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid #222;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .social-links a:hover {
+    background-color: rgba(102, 194, 23, 0.2);
+    color: #66C217;
+  }
+
+  @media (max-width: 600px) {
+    header {
+      justify-content: space-between;
+      padding: 15px 20px;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+    nav {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 10px;
+      background: #111;
+      padding: 20px 0;
+      border-top: 1px solid #222;
+      width: 100%;
+    }
+
+    nav.open {
+      display: flex;
+    }
+
+    nav a {
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 1rem;
+      border: 1px solid #222;
+      background-color: #0f1118;
+      border-radius: 6px;
+      transform: none;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: rgba(102, 194, 23, 0.2);
+      transform: none;
+    }
+
+    main.container {
+      margin: 20px auto;
+      padding: 0 10px;
+    }
+
+    .social-links {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .social-links a {
+      max-width: none;
+      width: 100%;
+    }
+  }
+</style>
 </head>
 <body>
 
@@ -59,4 +255,3 @@
 
 </body>
 </html>
-
