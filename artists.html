@@ -15,8 +15,8 @@
     }
     header {
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       background: #111;
       padding: 15px 20px;
       position: sticky;
@@ -29,6 +29,9 @@
       display: flex;
       gap: 30px;
       flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 900px;
     }
     nav a {
       color: #e6eef8;
@@ -38,6 +41,9 @@
       padding: 10px 15px;
       border-radius: 8px;
       transition: all 0.3s ease;
+      text-align: center;
+      flex-grow: 1;
+      max-width: 120px;
     }
     nav a.active,
     nav a:hover {
@@ -124,6 +130,8 @@
         border-radius: 6px;
         text-align: center;
         transform: none !important;
+        max-width: none;
+        flex-grow: 0;
       }
       nav a.active,
       nav a:hover {
@@ -199,4 +207,6 @@
 
 </body>
 </html>
+
+
 
