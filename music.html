@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Slime Gutter – Home</title>
+<title>Slime Gutter – Music</title>
 <style>
   body {
     margin: 0;
@@ -69,95 +69,71 @@
     border-radius: 12px;
     box-shadow: 0 0 10px #222;
     margin-bottom: 40px;
+    text-align: left;
   }
 
-  .title {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
+  .album-title {
+    font-size: 2.4rem;
     color: #99E430;
+    margin-bottom: 10px;
     text-shadow: 0 0 10px #99E430, 0 0 20px #66C217;
   }
 
-  .section img {
-    display: block;
-    margin: 20px auto 30px auto;
-    max-width: 200px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px #99E430, 0 0 20px #66C217;
-  }
-
-  .about-us {
+  .album-description {
     font-size: 1.1rem;
     color: #b2b9c5;
     line-height: 1.6;
-    max-height: 6.4em; /* roughly 4 lines */
+    max-height: 5.2em; /* about 3 lines */
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 
-  .section h2 {
-    margin-bottom: 15px;
-    color: #99E430;
+  .album-img {
+    max-width: 180px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #99E430, 0 0 20px #66C217;
+    margin-bottom: 25px;
   }
 
-  .section p {
-    color: #b2b9c5;
-    margin-bottom: 15px;
+  .song-list {
+    list-style: none;
+    padding-left: 0;
   }
 
-  .section-btn {
-    display: inline-block;
-    padding: 12px 25px;
-    background: #99E430;
-    color: #0b1220;
-    font-weight: bold;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  }
-
-  .section-btn:hover {
-    background: #66C217;
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #99E430, 0 0 40px #66C217;
-  }
-
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-  }
-
-  .social-links span {
-    color: #b2b9c5;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 10px;
+  .song-list li {
+    margin-bottom: 12px;
     font-size: 1.1rem;
+    color: #e6eef8;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  .social-links a {
-    color: #99E430;
-    text-decoration: underline;
-    font-weight: bold;
-    transition: color 0.2s ease;
-  }
-
-  .social-links a:hover {
+  .song-list li:hover {
     color: #66C217;
   }
 
+  .song-number {
+    width: 25px;
+    font-weight: bold;
+  }
+
+  audio {
+    width: 100%;
+    margin-top: 15px;
+    outline: none;
+  }
+
   @media (max-width: 600px) {
-    .title {
-      font-size: 2rem;
+    .album-title {
+      font-size: 1.8rem;
     }
-    .about-us {
+    .album-description {
       font-size: 1rem;
     }
     .section {
@@ -170,8 +146,8 @@
 
 <header>
   <nav>
-    <a href="home.html" class="active">Home</a>
-    <a href="music.html">Music</a>
+    <a href="home.html">Home</a>
+    <a href="music.html" class="active">Music</a>
     <a href="artists.html">Artists</a>
     <a href="void.html">Void</a>
   </nav>
@@ -179,34 +155,48 @@
 
 <main class="container">
 
-  <div class="section">
-    <h1 class="title">Slime Gutter</h1>
-    <img src="m/sg.webp" alt="Slime Gutter Logo" />
-    <p class="about-us">
-      Slime Gutter is a creative collective led by PD7 Felons, producing cutting-edge music within the ARPA group. Our mission is to blend unique musical styles, push creative boundaries, and deliver immersive audio experiences. Explore our tracks, albums, and the talented artists shaping the sound of the group. Each release reflects innovation, passion, and a dedication to high-quality music production.
+  <section class="section">
+    <h1 class="album-title">Slime Gutter</h1>
+    <img src="m/sg.webp" alt="Slime Gutter Album Art" class="album-img" />
+    <p class="album-description">
+      Slime Gutter's album features a collection of innovative tracks blending unique styles and immersive audio experiences. Dive into the soundscapes and enjoy the artistic journey.
     </p>
-  </div>
+    <ul class="song-list" id="songList">
+      <li data-src="m/Slimecraft.mp3"><span class="song-number">1</span> Slimecraft</li>
+      <li data-src="m/Slime Gutter.mp3"><span class="song-number">2</span> Slime Gutter</li>
+      <li data-src="m/Trenches.mp3"><span class="song-number">3</span> Trenches</li>
+      <li data-src="m/27 shots.mp3"><span class="song-number">4</span> 27 shots</li>
+      <li data-src="m/philly.mp3"><span class="song-number">5</span> philly</li>
+      <li data-src="m/Jugg.mp3"><span class="song-number">6</span> Jugg</li>
+      <li data-src="m/chicken jockey.mp3"><span class="song-number">7</span> chicken jockey</li>
+      <li data-src="m/war.mp3"><span class="song-number">8</span> war</li>
+      <li data-src="m/Massive.mp3"><span class="song-number">9</span> Massive</li>
+      <li data-src="m/Bag of Money.mp3"><span class="song-number">10</span> Bag of Money</li>
+    </ul>
 
-  <div class="section">
-    <h2>Music</h2>
-    <p>Discover the latest tracks and albums from Slime Gutter. Enjoy exclusive releases and curated playlists.</p>
-    <a href="music.html" class="section-btn">Go to Music</a>
-  </div>
-
-  <div class="section">
-    <h2>Artists</h2>
-    <p>Meet PD7 Felons and the talented artists within Slime Gutter. Learn about their work, projects, and creative contributions. Follow their journey as they experiment with sound and redefine modern music.</p>
-    <a href="artists.html" class="section-btn">View Artists</a>
-  </div>
-
-  <div class="social-links">
-    <span>Follow us on:</span>
-    <a href="https://open.spotify.com/artist/2iAqjZM8FB0HTK676J8KOZ" target="_blank" rel="noopener noreferrer">Spotify</a>
-    <a href="https://music.apple.com/us/artist/slime-gutter/1687699219" target="_blank" rel="noopener noreferrer">Apple Music</a>
-    <a href="https://soundcloud.com/liam-howard-861341549" target="_blank" rel="noopener noreferrer">SoundCloud</a>
-  </div>
+    <audio controls id="audioPlayer">
+      Your browser does not support the audio element.
+    </audio>
+  </section>
 
 </main>
 
+<script>
+  const songList = document.getElementById('songList');
+  const audioPlayer = document.getElementById('audioPlayer');
+
+  songList.addEventListener('click', (e) => {
+    let li = e.target.closest('li');
+    if (!li) return;
+    const src = li.getAttribute('data-src');
+    if (src) {
+      audioPlayer.src = src;
+      audioPlayer.play();
+    }
+  });
+</script>
+
 </body>
 </html>
+
+
