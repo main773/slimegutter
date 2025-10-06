@@ -14,6 +14,7 @@
     min-height: 100vh;
     padding: 0 15px;
   }
+
   header {
     width: 100%;
     display: flex;
@@ -26,12 +27,26 @@
     z-index: 100;
     box-shadow: 0 0 10px #222;
   }
+
+  .menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #e6eef8;
+    cursor: pointer;
+    z-index: 101;
+    position: absolute;
+    left: 20px;
+  }
+
   nav {
     display: flex;
     justify-content: center;
     gap: 50px;
     flex-wrap: wrap;
   }
+
   nav a {
     color: #e6eef8;
     text-decoration: none;
@@ -41,21 +56,25 @@
     border-radius: 8px;
     transition: all 0.3s ease;
   }
+
   nav a:hover {
     color: #66C217;
     transform: scale(1.1);
     background: rgba(102, 194, 23, 0.15);
   }
+
   nav a.active {
     color: #66C217;
     background: rgba(102, 194, 23, 0.15);
     transform: scale(1.1);
   }
+
   .container {
     max-width: 900px;
     margin: 60px auto;
     padding: 0 20px;
   }
+
   .section {
     background: #111;
     padding: 25px;
@@ -64,6 +83,7 @@
     margin-bottom: 40px;
     text-align: left;
   }
+
   .album {
     display: flex;
     align-items: center;
@@ -71,6 +91,7 @@
     margin-bottom: 20px;
     cursor: pointer;
   }
+
   .album img {
     width: 60px;
     height: 60px;
@@ -78,22 +99,70 @@
     object-fit: cover;
     margin-right: 15px;
   }
+
   .album-info h2 {
     margin: 0;
     color: #99E430;
     font-size: 1.2rem;
   }
+
   .album-info p {
     margin: 4px 0 0;
     color: #b2b9c5;
     font-size: 0.9rem;
+  }
+
+  @media (max-width: 600px) {
+    header {
+      justify-content: space-between;
+      padding: 15px 20px;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+    nav {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 10px;
+      background: #111;
+      padding: 20px 0;
+      border-top: 1px solid #222;
+      width: 100%;
+    }
+
+    nav.open {
+      display: flex;
+    }
+
+    nav a {
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 1rem;
+      border: 1px solid #222;
+      background-color: #0f1118;
+      border-radius: 6px;
+      transform: none;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: rgba(102, 194, 23, 0.2);
+      transform: none;
+    }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+  <nav id="navMenu">
     <a href="home.html">Home</a>
     <a href="music.html" class="active">Music</a>
     <a href="artists.html">Artists</a>
@@ -109,6 +178,14 @@
 
   <div class="section" id="albums-container"></div>
 </main>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.getElementById('navMenu');
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+  });
+</script>
 
 <script src="music.js"></script>
 <script>
@@ -132,5 +209,4 @@
 
 </body>
 </html>
-
 
