@@ -1,50 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Slime Gutter – Music</title>
-<link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0d12;
+  color: #e6eef8;
+  text-align: center;
+  min-height: 100vh;
+  padding: 0 15px;
+}
 
-<header>
-  <nav>
-    <a href="home.html">Home</a>
-    <a href="music.html" class="active">Music</a>
-    <a href="artists.html">Artists</a>
-    <a href="void.html">Void</a>
-  </nav>
-</header>
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 0 10px #222;
+}
 
-<main class="container">
-  <div class="section">
-    <h1 class="title">Slime Gutter Music</h1>
-    <p class="about-us">Click an album to view songs and play them.</p>
-  </div>
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
 
-  <div class="section" id="albums-container"></div>
-</main>
+nav a {
+  color: #e6eef8;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
 
-<script src="music.js"></script>
-<script>
-const container = document.getElementById('albums-container');
+nav a:hover {
+  color: #66C217;
+  transform: scale(1.1);
+  background: rgba(102, 194, 23, 0.15);
+}
 
-albums.forEach(album => {
-  const albumDiv = document.createElement('div');
-  albumDiv.className = 'album';
-  albumDiv.innerHTML = `
-    <a href="viewer.html?album=${encodeURIComponent(album.t)}" style="display:flex; align-items:flex-start; text-decoration:none;">
-      <img src="m/${album.i}" alt="${album.t}" />
-      <div class="album-info">
-        <h2>${album.t}</h2>
-        <p>${album.d} (${album.s.length} songs)</p>
-      </div>
-    </a>
-  `;
-  container.appendChild(albumDiv);
-});
-</script>
+nav a.active {
+  color: #66C217;
+  background: rgba(102, 194, 23, 0.15);
+  transform: scale(1.1);
+}
 
-</body>
-</html>
+.container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.section {
+  background: #111;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #222;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #99E430;
+  text-shadow: 0 0 10px #99E430, 0 0 20px #66C217;
+}
+
+.about-us {
+  font-size: 1.1rem;
+  color: #b2b9c5;
+  line-height: 1.6;
+}
+
+.section h2 {
+  margin-bottom: 15px;
+  color: #99E430;
+}
+
+.section p {
+  color: #b2b9c5;
+  margin-bottom: 15px;
+}
+
+.section-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #99E430;
+  color: #0b1220;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.section-btn:hover {
+  background: #66C217;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #99E430, 0 0 40px #66C217;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.social-links span {
+  color: #b2b9c5;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.social-links a {
+  color: #99E430;
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+  color: #66C217;
+}
+
+@media (max-width: 600px) {
+  .title { font-size: 2rem; }
+  .about-us { font-size: 1rem; }
+  .section { padding: 20px; }
+}
