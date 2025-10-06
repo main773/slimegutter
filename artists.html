@@ -16,18 +16,19 @@
     header {
       display: flex;
       align-items: center;
+      justify-content: center;
       background: #111;
       padding: 15px 20px;
       position: sticky;
       top: 0;
       z-index: 100;
       box-shadow: 0 0 10px #222;
+      position: relative;
     }
     nav {
       display: flex;
       gap: 30px;
       flex-wrap: wrap;
-      margin-left: auto;
     }
     nav a {
       color: #e6eef8;
@@ -44,7 +45,6 @@
       background: rgba(102, 194, 23, 0.15);
       transform: scale(1.1);
     }
-
     .menu-toggle {
       display: none;
       font-size: 2rem;
@@ -52,9 +52,10 @@
       border: none;
       color: #e6eef8;
       cursor: pointer;
+      position: absolute;
+      left: 20px;
       z-index: 101;
     }
-
     main.container {
       max-width: 900px;
       margin: 40px auto;
@@ -97,8 +98,6 @@
     .artist-card p {
       color: #b2b9c5;
     }
-
-    /* Responsive for mobile */
     @media (max-width: 600px) {
       .menu-toggle {
         display: block;
