@@ -2,7 +2,7 @@ const albums = [
   {
     t: "Popular",
     d: "Slime Gutter's Top 10 Most Popular",
-    i: "sg.webp", // updated from m/sg.png
+    i: "sg.webp",
     s: [
       { t: "Slimecraft", a: "Slime Gutter", f: "Slimecraft.mp3", i: "sg.webp", d: "1:11" },
       { t: "Slime Gutter", a: "Slime Gutter", f: "Slime Gutter.mp3", i: "sg.webp", d: "3:39" },
@@ -27,6 +27,7 @@ const albums = [
     ]
   }
 ];
+
 
 
 
