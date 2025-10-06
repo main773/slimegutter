@@ -1,61 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slime Gutter – Home</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slime Gutter – Welcome</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #0b0d12;
+      color: #e6eef8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .welcome-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .welcome-logo {
+      max-width: 250px;
+      margin-bottom: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 50px #99E430, 0 0 80px #66C217;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    h1 {
+      color: #99E430;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      text-shadow: 0 0 15px #99E430, 0 0 25px #66C217;
+    }
+
+    p {
+      color: #9aa3b2;
+      margin-bottom: 25px;
+      font-size: 1.2rem;
+      max-width: 500px;
+    }
+
+    .welcome-links {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+      align-items: center;
+    }
+
+    .main-btn {
+      display: inline-block;
+      padding: 16px 45px;
+      background: linear-gradient(135deg, #99E430, #66C217);
+      color: #0b1220;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 15px;
+      font-size: 1.3rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px #99E430, 0 0 40px #66C217;
+    }
+
+    .main-btn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 0 60px #99E430, 0 0 100px #66C217;
+    }
+
+    .secondary-btn {
+      display: inline-block;
+      padding: 14px 35px;
+      background: #111;
+      color: #99E430;
+      border: 2px solid #99E430;
+      border-radius: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .secondary-btn:hover {
+      background: #99E430;
+      color: #0b1220;
+      box-shadow: 0 0 40px #99E430, 0 0 70px #66C217;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .welcome-logo {
+        max-width: 180px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+        max-width: 300px;
+      }
+
+      .main-btn,
+      .secondary-btn {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
-  <nav id="navMenu">
-    <a href="home.html" class="active">Home</a>
-    <a href="music.html">Music</a>
-    <a href="artists.html">Artists</a>
-    <a href="void.html">Void</a>
-  </nav>
-</header>
+  <div class="welcome-container">
+    <img src="m/sg.webp" alt="Slime Gutter Logo" class="welcome-logo" />
+    <h1>Welcome to Slime Gutter</h1>
+    <p>Experience the world of PD7 Felons and the ARPA music group Slime Gutter.</p>
 
-<main class="container">
-
-  <div class="section">
-    <h1 class="title">Slime Gutter</h1>
-    <img src="m/sg.webp" alt="Slime Gutter Logo" style="max-width:200px; margin:20px 0; border-radius:12px; box-shadow: 0 0 10px #99E430, 0 0 20px #66C217;">
-    <p class="about-us">
-      Slime Gutter is a creative collective led by PD7 Felons, producing cutting-edge music within the ARPA group. Our mission is to blend unique musical styles, push creative boundaries, and deliver immersive audio experiences. Explore our tracks, albums, and the talented artists shaping the sound of the group. Each release reflects innovation, passion, and a dedication to high-quality music production.
-    </p>
+    <div class="welcome-links">
+      <a href="home.html" class="main-btn">Enter Site</a>
+      <a href="music.html" class="secondary-btn">Explore Music</a>
+    </div>
   </div>
-
-  <div class="section">
-    <h2>Music</h2>
-    <p>Discover the latest tracks and albums from Slime Gutter. Enjoy exclusive releases and curated playlists.</p>
-    <a href="music.html" class="section-btn">Go to Music</a>
-  </div>
-
-  <div class="section">
-    <h2>Artists</h2>
-    <p>Meet PD7 Felons and the talented artists within Slime Gutter. Learn about their work, projects, and creative contributions. Follow their journey as they experiment with sound and redefine modern music.</p>
-    <a href="artists.html" class="section-btn">View Artists</a>
-  </div>
-
-  <div class="social-links">
-    <span>Follow us on:</span>
-    <a href="https://open.spotify.com/artist/2iAqjZM8FB0HTK676J8KOZ" target="_blank">Spotify</a>
-    <a href="https://music.apple.com/us/artist/slime-gutter/1687699219" target="_blank">Apple Music</a>
-    <a href="https://soundcloud.com/liam-howard-861341549" target="_blank">SoundCloud</a>
-  </div>
-
-</main>
-
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const navMenu = document.getElementById('navMenu');
-  menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
-  });
-</script>
 
 </body>
 </html>
+
+
+
