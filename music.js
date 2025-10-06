@@ -19,7 +19,7 @@ const albums = [
   {
     t: "Other",
     d: "Other Stuff",
-    i: "other.png",
+    i: "rr.jpg",
     s: [
       { t: "N-G-G-Y-U", a: "Rick A", f: "rr.mp3", i: "rr.jpg" },
     ]
