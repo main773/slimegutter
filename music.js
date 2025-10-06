@@ -4,7 +4,7 @@ const albums = [
     d: "Slime Gutter's Top 10 Most Popular",
     i: "tt.png",
     s: [
-      { t: "Slimecraft", a: "idk", f: "Slimecraft.mp3", i: "sg.webp" },
+      { t: "Slimecraft", a: "S27 + PD7 Felons", f: "Slimecraft.mp3", i: "sg.webp" },
       { t: "Slime Gutter", a: "idk", f: "Slime Gutter.mp3", i: "sg.webp" },
       { t: "Trenches", a: "idk", f: "Trenches.mp3", i: "sg.webp" },
       { t: "27 shots", a: "idk", f: "27 shots.mp3", i: "sg.webp" },
