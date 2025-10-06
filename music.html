@@ -3,147 +3,210 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Slime Gutter – Music</title>
+<title>Slime Gutter – Home</title>
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b0d12;
-  color: #e6eef8;
-  text-align: center;
-  min-height: 100vh;
-  padding: 0 15px;
-}
-header {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #111;
-  padding: 15px 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 0 10px #222;
-}
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  flex-wrap: wrap;
-}
-nav a {
-  color: #e6eef8;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1rem;
-  padding: 10px 20px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-nav a:hover {
-  color: #66C217;
-  transform: scale(1.1);
-  background: rgba(102, 194, 23, 0.15);
-}
-nav a.active {
-  color: #66C217;
-  background: rgba(102, 194, 23, 0.15);
-  transform: scale(1.1);
-}
-.container {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
-.section {
-  background: #111;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #222;
-  margin-bottom: 40px;
-  text-align: left;
-}
-.title {
-  font-size: 2.8rem;
-  margin-bottom: 20px;
-  color: #99E430;
-  text-shadow: 0 0 10px #99E430, 0 0 20px #66C217;
-  text-align: center;
-}
-.about-us {
-  font-size: 1.1rem;
-  color: #b2b9c5;
-  line-height: 1.6;
-  text-align: center;
-  margin-bottom: 30px;
-}
-.album {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  background: #111;
-  padding: 10px 15px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.album:hover {
-  background-color: #222;
-}
-.album img {
-  width: 60px;
-  height: 60px;
-  border-radius: 6px;
-  object-fit: cover;
-}
-.album-info h2 {
-  margin: 0;
-  color: #99E430;
-  font-size: 1.1rem;
-}
-.album-info p {
-  margin: 2px 0 0 0;
-  color: #b2b9c5;
-  font-size: 0.9rem;
-}
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b0d12;
+    color: #e6eef8;
+    text-align: center;
+    min-height: 100vh;
+    padding: 0 15px;
+  }
+
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 0 10px #222;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    color: #e6eef8;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #66C217;
+    transform: scale(1.1);
+    background: rgba(102, 194, 23, 0.15);
+  }
+
+  nav a.active {
+    color: #66C217;
+    background: rgba(102, 194, 23, 0.15);
+    transform: scale(1.1);
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+
+  .section {
+    background: #111;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #222;
+    margin-bottom: 40px;
+  }
+
+  .title {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #99E430;
+    text-shadow: 0 0 10px #99E430, 0 0 20px #66C217;
+  }
+
+  .section img {
+    display: block;
+    margin: 20px auto 30px auto;
+    max-width: 200px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #99E430, 0 0 20px #66C217;
+  }
+
+  .about-us {
+    font-size: 1.1rem;
+    color: #b2b9c5;
+    line-height: 1.6;
+    max-height: 6.4em; /* roughly 4 lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    margin-bottom: 15px;
+  }
+
+  .section h2 {
+    margin-bottom: 15px;
+    color: #99E430;
+  }
+
+  .section p {
+    color: #b2b9c5;
+    margin-bottom: 15px;
+  }
+
+  .section-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #99E430;
+    color: #0b1220;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .section-btn:hover {
+    background: #66C217;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #99E430, 0 0 40px #66C217;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .social-links span {
+    color: #b2b9c5;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+
+  .social-links a {
+    color: #99E430;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.2s ease;
+  }
+
+  .social-links a:hover {
+    color: #66C217;
+  }
+
+  @media (max-width: 600px) {
+    .title {
+      font-size: 2rem;
+    }
+    .about-us {
+      font-size: 1rem;
+    }
+    .section {
+      padding: 20px;
+    }
+  }
 </style>
 </head>
 <body>
+
 <header>
   <nav>
-    <a href="home.html">Home</a>
-    <a href="music.html" class="active">Music</a>
+    <a href="home.html" class="active">Home</a>
+    <a href="music.html">Music</a>
     <a href="artists.html">Artists</a>
     <a href="void.html">Void</a>
   </nav>
 </header>
+
 <main class="container">
+
   <div class="section">
-    <h1 class="title">Slime Gutter Music</h1>
-    <p class="about-us">Click an album to view songs and play them.</p>
+    <h1 class="title">Slime Gutter</h1>
+    <img src="m/sg.webp" alt="Slime Gutter Logo" />
+    <p class="about-us">
+      Slime Gutter is a creative collective led by PD7 Felons, producing cutting-edge music within the ARPA group. Our mission is to blend unique musical styles, push creative boundaries, and deliver immersive audio experiences. Explore our tracks, albums, and the talented artists shaping the sound of the group. Each release reflects innovation, passion, and a dedication to high-quality music production.
+    </p>
   </div>
-  <div class="section" id="albums-container"></div>
+
+  <div class="section">
+    <h2>Music</h2>
+    <p>Discover the latest tracks and albums from Slime Gutter. Enjoy exclusive releases and curated playlists.</p>
+    <a href="music.html" class="section-btn">Go to Music</a>
+  </div>
+
+  <div class="section">
+    <h2>Artists</h2>
+    <p>Meet PD7 Felons and the talented artists within Slime Gutter. Learn about their work, projects, and creative contributions. Follow their journey as they experiment with sound and redefine modern music.</p>
+    <a href="artists.html" class="section-btn">View Artists</a>
+  </div>
+
+  <div class="social-links">
+    <span>Follow us on:</span>
+    <a href="https://open.spotify.com/artist/2iAqjZM8FB0HTK676J8KOZ" target="_blank" rel="noopener noreferrer">Spotify</a>
+    <a href="https://music.apple.com/us/artist/slime-gutter/1687699219" target="_blank" rel="noopener noreferrer">Apple Music</a>
+    <a href="https://soundcloud.com/liam-howard-861341549" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+  </div>
+
 </main>
-<script src="music.js"></script>
-<script>
-const container = document.getElementById('albums-container');
-albums.forEach(album => {
-  const albumDiv = document.createElement('div');
-  albumDiv.className = 'album';
-  albumDiv.innerHTML = `
-    <a href="viewer.html?album=${encodeURIComponent(album.t)}" style="display:flex; align-items:center; text-decoration:none; color: inherit;">
-      <img src="m/${album.i}" alt="${album.t}" />
-      <div class="album-info">
-        <h2>${album.t}</h2>
-        <p>${album.d} (${album.s.length} songs)</p>
-        <p>${album.s.length > 0 ? album.s[0].a : ''}</p>
-      </div>
-    </a>
-  `;
-  container.appendChild(albumDiv);
-});
-</script>
+
 </body>
 </html>
